@@ -7,15 +7,16 @@ function TableSection({hideSame}) {
     const tableKeys =  Object.keys(TableBodyArray);
   return (
     <TableSectionStyle>
-        {tableKeys.map((item) => {
+        {tableKeys.map((item, i) => {
             const innerTable= TableBodyArray[item]
             const innerTableKeys = Object.keys(innerTable);
             return (
-                <div id={item}>
+                <div id={item} key={i}>
                     <div className='sections' >
                         <p>{item}</p>
                     </div>
                     <table className={`inner-section`}>
+                        <tbody>
                         {innerTableKeys.map((item, index) => {
                             const isNumber = typeof innerTable[item]?.school1  === 'number' && typeof innerTable[item]?.school1  === 'number'
                             const isSame =  innerTable[item]?.school1 === innerTable[item]?.school2
@@ -24,31 +25,32 @@ function TableSection({hideSame}) {
                                 {isSame && hideSame ? (
                                     <></>
                                     ):(
-                                        <tr>
-                                        <td className='section-heading'>{item}</td>
-                                        <td>
-                                            <div>
-                                                <p>{`${innerTable[item]?.school1}`}</p>
-                                                {isNumber && (innerTable[item]?.school1 > innerTable[item]?.school2) ? (
-                                                    <CheckIcon/>
-                                                ): ""}
-                                            
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                <p>{`${innerTable[item]?.school2}`}</p>
-                                                {isNumber && (innerTable[item]?.school1 < innerTable[item]?.school2) ? (
-                                                    <CheckIcon/>
-                                                ): ""}
-                                            </div></td>
-                                        <td>{innerTable[item]?.school3}</td>
-                                        <td>{innerTable[item]?.school4}</td>
-                                    </tr>
+                                        <tr key={index}>
+                                            <td className='section-heading'>{item}</td>
+                                            <td>
+                                                <div>
+                                                    <p>{`${innerTable[item]?.school1}`}</p>
+                                                    {isNumber && (innerTable[item]?.school1 > innerTable[item]?.school2) ? (
+                                                        <CheckIcon/>
+                                                    ): ""}
+                                                
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <p>{`${innerTable[item]?.school2}`}</p>
+                                                    {isNumber && (innerTable[item]?.school1 < innerTable[item]?.school2) ? (
+                                                        <CheckIcon/>
+                                                    ): ""}
+                                                </div></td>
+                                            <td>{innerTable[item]?.school3}</td>
+                                            <td>{innerTable[item]?.school4}</td>
+                                        </tr>
                                     )}
                                 </>
                             )
                         })}
+                        </tbody>
                      </table>
                     
                 </div>

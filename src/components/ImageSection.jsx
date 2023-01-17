@@ -21,8 +21,8 @@ function ImageSection({setHideSame, hideSame}) {
             </div>
         </div>
     
-        {SchoolArray.map((item) => (
-            <div className='section'>
+        {SchoolArray.map((item, index) => (
+            <div className='section' key={index}>
                 {item.name ? (
                     <img src={item.image} className="school-image"/>
                 ):(
