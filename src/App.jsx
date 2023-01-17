@@ -1,7 +1,7 @@
 import './styles/App.scss'
 import { useState } from 'react'
 import Header from './components/header.jsx'
-import SearchInput from './components/library/Search'
+import SearchInput from './components/library/search'
 import { TableBodyArray } from './data/tableArray'
 import ComparisonNavBar from './components/ComparisonNavBar';
 import ImageSection from './components/ImageSection';

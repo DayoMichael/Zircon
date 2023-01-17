@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { WasabiLogo } from '../assets/Wasabilogo';
 import UserLogo from "../assets/user-logo.png";
-import SearchInput from './library/Search';
+import SearchInput from './library/search';
 
 function Header() {
     const navigation = [

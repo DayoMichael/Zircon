@@ -4,7 +4,7 @@ import styled from 'styled-components'
 function SearchInput({width, className, background}) {
   return (
     <SearchStyle width={width} className={className} background={background}>
-        <input className="Search" placeholder='search'></input>
+        <input className="search" placeholder='Search'></input>
     </SearchStyle>
   )
 }
